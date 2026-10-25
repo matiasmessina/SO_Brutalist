@@ -2,46 +2,41 @@
 
 import { useEffect, useState } from "react"
 
-const LOG_LINES = [
-  "> Initializing AI pipeline...",
-  "> Loading model weights: 2.4GB",
-  "> Connecting to data stream...",
-  "> Analyzing codebase...",
-  "> Running inference: batch_01",
-  "> Optimization pass: 1/3",
-  "> Optimization pass: 2/3",
-  "> Optimization pass: 3/3",
-  "> 98% Optimized",
-  "> Deploying to edge nodes...",
-  "> Status: OPERATIONAL",
-  "> Latency: 12ms p99",
-  "> Throughput: 14.2k req/s",
-  "> Memory: 847MB / 2048MB",
-  "> --------- CYCLE COMPLETE ---------",
+const DEFAULT_LINES = [
+  "> Iniciando laboratorio...",
+  "> Cargando seL4, VxWorks e Inferno",
+  "> --------- LISTO ---------",
 ]
 
-export function TerminalCard() {
+/** Terminal animada del template; ahora acepta sus propias líneas y título. */
+export function TerminalCard({
+  lines: source = DEFAULT_LINES,
+  title = "terminal.sys",
+  speed = 700,
+}: {
+  lines?: string[]
+  title?: string
+  speed?: number
+}) {
   const [lines, setLines] = useState<string[]>([])
   const [currentLine, setCurrentLine] = useState(0)
 
   useEffect(() => {
+    setLines([source[0]])
+    setCurrentLine(0)
     const interval = setInterval(() => {
       setCurrentLine((prev) => {
         const next = prev + 1
-        if (next >= LOG_LINES.length) {
-          setLines([])
+        if (next >= source.length) {
+          setLines([source[0]])
           return 0
         }
-        setLines((l) => [...l.slice(-8), LOG_LINES[next]])
+        setLines((l) => [...l.slice(-6), source[next]])
         return next
       })
-    }, 600)
-
-    // Add first line
-    setLines([LOG_LINES[0]])
-
+    }, speed)
     return () => clearInterval(interval)
-  }, [])
+  }, [source, speed])
 
   return (
     <div className="flex flex-col h-full">
@@ -49,16 +44,14 @@ export function TerminalCard() {
         <span className="h-2 w-2 bg-[#ea580c]" />
         <span className="h-2 w-2 bg-foreground" />
         <span className="h-2 w-2 border border-foreground" />
-        <span className="ml-auto text-[10px] tracking-widest text-muted-foreground uppercase">
-          terminal.sys
-        </span>
+        <span className="ml-auto text-[10px] tracking-widest text-muted-foreground uppercase">{title}</span>
       </div>
-      <div className="flex-1 bg-foreground p-4 overflow-hidden">
+      <div className="flex-1 bg-foreground p-4 overflow-hidden min-h-[150px]">
         <div className="flex flex-col gap-1">
           {lines.map((line, i) => (
             <span
               key={`${currentLine}-${i}`}
-              className="text-xs text-background font-mono block"
+              className="text-xs text-background font-mono block truncate"
               style={{ opacity: i === lines.length - 1 ? 1 : 0.6 }}
             >
               {line}

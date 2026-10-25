@@ -1,0 +1,11 @@
+# Configuración de pnpm. Antes estaba en la sección "pnpm" de package.json,
+# que las versiones nuevas de pnpm ya no leen.
+
+overrides:
+  "@types/react": "19.2.7"
+  "@types/react-dom": "19.2.3"
+
+allowBuilds:
+  # sharp ya trae binarios precompilados para cada sistema; no hace falta
+  # ejecutar su script de instalación.
+  sharp: false

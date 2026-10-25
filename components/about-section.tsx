@@ -53,8 +53,7 @@ function UptimeCounter() {
   const [seconds, setSeconds] = useState(0)
 
   useEffect(() => {
-    const base = 31536000 + Math.floor(Math.random() * 1000000)
-    setSeconds(base)
+    setSeconds(0)
     const interval = setInterval(() => setSeconds((s) => s + 1), 1000)
     return () => clearInterval(interval)
   }, [])
@@ -76,10 +75,10 @@ function UptimeCounter() {
 
 /* ── stat block ── */
 const STATS = [
-  { label: "MODELS_DEPLOYED", value: "147" },
-  { label: "EDGE_REGIONS", value: "50+" },
-  { label: "INFERENCE_CALLS", value: "12.8B" },
-  { label: "AVG_LATENCY", value: "4.2ms" },
+  { label: "LINEAS_DE_PRUEBA_SEL4", value: "1.3M" },
+  { label: "PRIORIDADES_VXWORKS", value: "256" },
+  { label: "RAM_MINIMA_INFERNO", value: "1 MIB" },
+  { label: "FALLAS_DE_PRUEBA_DESDE_2009", value: "0" },
 ]
 
 function StatBlock({ label, value, index }: { label: string; value: string; index: number }) {
@@ -114,12 +113,12 @@ export function AboutSection() {
         className="flex items-center gap-4 mb-8"
       >
         <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono">
-          {"// SECTION: ABOUT_SYS.INT"}
+          {"// SECTION: POR_QUE_SIMULAR"}
         </span>
         <div className="flex-1 border-t border-border" />
         <BlinkDot />
         <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono">
-          005
+          002
         </span>
       </motion.div>
 
@@ -136,16 +135,16 @@ export function AboutSection() {
           {/* Image label overlay */}
           <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-2 bg-foreground/80 backdrop-blur-sm">
             <span className="text-[10px] tracking-[0.2em] uppercase text-background/60 font-mono">
-              RENDER: isometric_infrastructure.obj
+              RENDER: espacio_de_kernel.obj
             </span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#ea580c] font-mono">
-              LIVE
+              EN VIVO
             </span>
           </div>
 
           <Image
             src="/images/about-isometric.jpg"
-            alt="Isometric view of AI infrastructure with server racks and data pipelines"
+            alt="Vista isométrica de servidores y líneas de datos"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -155,7 +154,7 @@ export function AboutSection() {
           {/* Bottom image coordinates */}
           <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-2 bg-foreground/80 backdrop-blur-sm">
             <span className="text-[10px] tracking-[0.2em] uppercase text-background/40 font-mono">
-              {"CAM: -45deg / ISO"}
+              {"CAM: -45° / ISO"}
             </span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-background/40 font-mono">
               {"RES: 2048x2048"}
@@ -174,10 +173,10 @@ export function AboutSection() {
           {/* Header bar */}
           <div className="flex items-center justify-between px-5 py-3 border-b-2 border-foreground">
             <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono">
-              MANIFEST.md
+              MANIFIESTO.md
             </span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono">
-              v3.1.0
+              TP · 2026
             </span>
           </div>
 
@@ -191,9 +190,9 @@ export function AboutSection() {
                 transition={{ duration: 0.5, delay: 0.2, ease }}
                 className="text-2xl lg:text-3xl font-mono font-bold tracking-tight uppercase text-balance"
               >
-                Infrastructure built for
+                Lo que tu sistema operativo
                 <br />
-                <span className="text-[#ea580c]">raw intelligence</span>
+                <span className="text-[#ea580c]">no te garantiza</span>
               </motion.h2>
 
               <motion.div
@@ -204,15 +203,16 @@ export function AboutSection() {
                 className="flex flex-col gap-4"
               >
                 <p className="text-xs lg:text-sm font-mono text-muted-foreground leading-relaxed">
-                  We engineer the substrate layer that sits between your models
-                  and your users. No abstractions. No magic. Just deterministic
-                  routing, sub-5ms inference, and transparent operational control
-                  across every edge node in the network.
+                  Windows, macOS y Linux están pensados para que todo ande
+                  razonablemente bien la mayor parte del tiempo. Si una tarea llega
+                  tarde, la pantalla se traba un segundo. Si un driver tiene un bug,
+                  a veces se cuelga todo. Para una computadora de escritorio, alcanza.
                 </p>
                 <p className="text-xs lg:text-sm font-mono text-muted-foreground leading-relaxed">
-                  Founded by systems engineers who spent a decade building
-                  distributed compute at hyperscale. We believe AI infrastructure
-                  should be inspectable, auditable, and brutally fast.
+                  En un dron, un rover o un avión, llegar tarde o dejar que un componente
+                  pise a otro no es un tirón: es un accidente. seL4, VxWorks e Inferno
+                  nacieron para garantizar cosas que un SO convencional no promete. Como
+                  casi nadie los usa, este laboratorio te deja verlas funcionar.
                 </p>
               </motion.div>
 
@@ -227,7 +227,7 @@ export function AboutSection() {
               >
                 <span className="h-1.5 w-1.5 bg-[#ea580c]" />
                 <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-mono">
-                  UPTIME:
+                  TIEMPO EN EL LAB:
                 </span>
                 <UptimeCounter />
               </motion.div>

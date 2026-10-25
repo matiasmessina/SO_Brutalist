@@ -5,16 +5,16 @@ import { motion } from "framer-motion"
 const ease = [0.22, 1, 0.36, 1] as const
 
 const PARTNERS = [
-  "OPENAI",
-  "ANTHROPIC",
-  "GOOGLE",
-  "META",
-  "NVIDIA",
-  "MISTRAL",
-  "COHERE",
-  "STABILITY",
-  "DEEPMIND",
-  "HUGGING FACE",
+  "MARS PATHFINDER · VXWORKS",
+  "CURIOSITY · VXWORKS",
+  "PERSEVERANCE · VXWORKS",
+  "BOEING 787 · VXWORKS 653",
+  "AIRBUS A400M · VXWORKS 653",
+  "DARPA HACMS · SEL4",
+  "NIO SKYOS · SEL4",
+  "HENSOLDT TRENTOS · SEL4",
+  "LUCENT PATHSTAR · INFERNO",
+  "BELL LABS · INFERNO",
 ]
 
 function LogoBlock({ name, glitch }: { name: string; glitch: boolean }) {
@@ -45,10 +45,10 @@ export function GlitchMarquee() {
         className="flex items-center gap-4 mb-8"
       >
         <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-          {"// PARTNERS: MODEL_ECOSYSTEM"}
+          {"// EN EL MUNDO REAL: MISIONES Y PRODUCTOS"}
         </span>
         <div className="flex-1 border-t border-border" />
-        <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">008</span>
+        <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">004</span>
       </motion.div>
 
       {/* Marquee */}

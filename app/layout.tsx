@@ -11,57 +11,21 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Brutalist AI SaaS Landing Page Template | Engineering-Grade Dark UI Kit',
-  description:
-    'A brutalist, engineering-themed landing page template for AI infrastructure and SaaS products. Features Geist Pixel typography, dot-grid backgrounds, live terminal animations, scramble-text micro-interactions, bento feature grids, isometric 3D illustrations, and a fully responsive dark industrial design system. Built with Next.js 16, Tailwind CSS, and Framer Motion.',
-  keywords: [
-    'brutalist landing page template',
-    'AI SaaS template',
-    'engineering UI kit',
-    'Next.js landing page',
-    'Tailwind CSS template',
-    'dark UI template',
-    'Geist Pixel font',
-    'bento grid layout',
-    'SaaS pricing page',
-    'Framer Motion animations',
-    'monospace design system',
-    'developer landing page',
-    'AI infrastructure template',
-    'industrial web design',
-    'dot matrix typography',
-    'terminal UI components',
-    'startup landing page',
-    'tech landing page template',
-  ],
-  authors: [{ name: 'SYS.INT' }],
-  creator: 'System Intelligence Corp.',
-  publisher: 'System Intelligence Corp.',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+  title: {
+    default: 'SO.LAB | seL4, VxWorks e Inferno en simulaciones',
+    template: '%s | SO.LAB',
   },
+  description:
+    'Laboratorio interactivo del Trabajo Práctico Especial de Sistemas Operativos: simulaciones de las funcionalidades que distinguen a seL4, VxWorks e Inferno frente a los sistemas operativos convencionales.',
+  keywords: ['seL4', 'VxWorks', 'Inferno', 'sistemas operativos', 'microkernel', 'RTOS', 'Plan 9', '9P', 'simulación'],
+  robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    title: 'Brutalist AI SaaS Landing Page Template | Engineering-Grade Dark UI Kit',
+    locale: 'es_AR',
+    title: 'SO.LAB | seL4, VxWorks e Inferno en simulaciones',
     description:
-      'A brutalist, engineering-themed landing page template for AI and SaaS products. Geist Pixel typography, terminal animations, bento grids, scramble-text effects, and a full industrial design system. Next.js 16 + Tailwind CSS + Framer Motion.',
-    siteName: 'SYS.INT Template',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Brutalist AI SaaS Landing Page Template',
-    description:
-      'Engineering-grade brutalist template for AI SaaS products. Dot-grid backgrounds, live terminal animations, Geist Pixel typography, bento feature grids, and scramble-text micro-interactions. Built with Next.js 16.',
-    creator: '@sysint',
+      'Probá en el navegador lo que hace distintos a seL4, VxWorks e Inferno: aislamiento por capacidades, inversión de prioridades, sistemas de archivos transaccionales y namespaces distribuidos.',
+    siteName: 'SO.LAB',
   },
   category: 'technology',
 }
@@ -79,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${jetbrainsMono.variable} ${GeistPixelGrid.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${jetbrainsMono.variable} ${GeistPixelGrid.variable}`} suppressHydrationWarning>
       <body className="font-mono antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           {children}

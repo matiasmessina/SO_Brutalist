@@ -3,8 +3,8 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-const LEFT_LABELS = ["Train", "Package", "Version"]
-const RIGHT_LABELS = ["Route", "Deploy", "Observe"]
+const DEFAULT_LEFT = ["seL4", "VxWorks", "Inferno"]
+const DEFAULT_RIGHT = ["Aislar", "Cumplir", "Montar"]
 
 function PillLabel({
   label,
@@ -49,7 +49,15 @@ function PillLabel({
   )
 }
 
-export function WorkflowDiagram() {
+export function WorkflowDiagram({
+  left = DEFAULT_LEFT,
+  right = DEFAULT_RIGHT,
+}: {
+  left?: string[]
+  right?: string[]
+} = {}) {
+  const LEFT_LABELS = left
+  const RIGHT_LABELS = right
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -69,7 +77,7 @@ export function WorkflowDiagram() {
         viewBox="0 0 800 200"
         className="w-full h-auto"
         role="img"
-        aria-label="Workflow diagram showing connected deployment stages: Train, Package, Version, Route, Deploy, Observe"
+        aria-label={`Diagrama: ${LEFT_LABELS.join(", ")} conectados a un kernel central y a ${RIGHT_LABELS.join(", ")}`}
       >
         {/* Left lines from center to left labels */}
         {LEFT_LABELS.map((_, i) => {

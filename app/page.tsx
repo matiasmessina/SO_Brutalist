@@ -1,8 +1,8 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
-import { FeatureGrid } from "@/components/feature-grid"
+import { LabsSection } from "@/components/labs-section"
 import { AboutSection } from "@/components/about-section"
-import { PricingSection } from "@/components/pricing-section"
+import { ComparisonSection } from "@/components/comparison-section"
 import { GlitchMarquee } from "@/components/glitch-marquee"
 import { Footer } from "@/components/footer"
 
@@ -12,9 +12,9 @@ export default function Page() {
       <Navbar />
       <main>
         <HeroSection />
-        <FeatureGrid />
+        <LabsSection />
         <AboutSection />
-        <PricingSection />
+        <ComparisonSection />
         <GlitchMarquee />
       </main>
       <Footer />
